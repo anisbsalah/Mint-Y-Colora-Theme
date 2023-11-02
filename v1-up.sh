@@ -8,14 +8,6 @@
 # DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
-# 0 = black   | 8  = gray           | tput setaf <value> = sets the foreground color
-# 1 = red     | 9  = bright red     | tput setab <value> = sets the background color
-# 2 = green   | 10 = bright green   | tput rev   = reverses the foreground and background colors
-# 3 = yellow  | 11 = bright yellow  | tput bold  = sets the text to bold
-# 4 = blue    | 12 = bright blue    | tput smul  = turns on underlining
-# 5 = magenta | 13 = bright magenta | tput rmul  = turns off underlining
-# 6 = cyan    | 14 = bright cyan    | tput blink = sets the text to blink
-# 7 = white   | 15 = bright white   | tput sgr0  = resets all text formatting
 ##################################################################################################################
 #
 # Learn Git with tutorials, news, and tips.
@@ -76,13 +68,19 @@
 
 ##################################################################################################################
 
+BOLD='\e[1m'
+BLD_OFF='\e[22m'
+ITALIC='\e[3m'
+ITAL_OFF='\e[23m'
+UNDERLINE='\e[4m'
+UL_OFF='\e[24m'
+
 # githubdir="$(basename "$(dirname "${PWD}" | tr '[:upper:]' '[:lower:]')")"
 project="$(basename "$(pwd)")"
 
 tput setaf 6
 echo "######################################################################################################"
-echo -e "$(tput smul)Project$(tput rmul): \033[3mhttps://github.com/anisbsalah/${project}\033[0m"
-tput setaf 6
+echo -e "${BOLD}${ITALIC}${UNDERLINE}Project${UL_OFF}: https://github.com/anisbsalah/${project}${BLD_OFF}${ITAL_OFF}"
 echo "######################################################################################################"
 tput sgr0
 
